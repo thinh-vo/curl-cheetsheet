@@ -20,6 +20,27 @@ curl -X POST <url> -d 'property1=value1,property2=value2'
 curl -X POST https://url/login/ -d 'username=yourusername&password=yourpassword'
 ```
 
+## Authentication
+### HTTP request with raw username and password
+*This marked as unsafe method, raw username and password will be visible to bash history*
+```
+curl -u <username>:<password> <url>
+
+curl - u myusername:mypassword https://url
+```
+
+### HTTP request with login file
+*Safe method, format of login file as below*
+```
+<name> <url> login <username> password <password>
+```
+### Make HTTP request with login file
+```
+curl --netrc-file <login-file> <url>
+
+curl --netrc-file auth.txt https://url
+```
+
 ## Return only the HTTP Headers of a URL
 *Use -I to view HTTP headers*
 ```
